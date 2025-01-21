@@ -25,7 +25,10 @@ public class PlayerServiceImpl implements PlayerService {
                 -> new EntityNotFoundException("Football team with ID " + teamId + " not found"));
         Player newPlayer = playerMapper.toPlayer(player);
         newPlayer.setTeamId(footballTeam.getId());
-        return playerMapper.playerToPlayerGetDTO(playerRepo.save(newPlayer));
+        footballTeam.getPlayers().add(newPlayer);
+        PlayerGetDTO playerGetDTO = playerMapper.playerToPlayerGetDTO(playerRepo.save(newPlayer));
+        footballTeamRepo.save(footballTeam);
+        return playerGetDTO;
     }
 
     @Override

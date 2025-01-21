@@ -12,5 +12,5 @@ public class FootballTeamGetDTO {
     private String name;
     private double budget;
     private double commissionPercentage;
-    private List<Long> playersId;
+    private List<Player> players;
 }

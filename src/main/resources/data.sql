@@ -1,25 +1,6 @@
--- Додавання команд
-INSERT INTO football_team (name, budget, commission_percentage)
-VALUES ('Team A', 1000000, 5);
+INSERT INTO football_team (id, name, budget, commission_percentage) VALUES (1, 'Team A', 500000, 5.0);
+INSERT INTO football_team (id, name, budget, commission_percentage) VALUES (2, 'Team B', 300000, 3.5);
 
-INSERT INTO football_team (name, budget, commission_percentage)
-VALUES ('Team B', 500000, 3);
-
--- Додавання гравців
-INSERT INTO player (name, age, experience_months, team_id)
-VALUES ('Player 1', 25, 30, 1);
-
-INSERT INTO player (name, age, experience_months, team_id)
-VALUES ('Player 2', 28, 36, 1);
-
-INSERT INTO player (name, age, experience_months, team_id)
-VALUES ('Player 3', 23, 18, 1);
-
-INSERT INTO player (name, age, experience_months, team_id)
-VALUES ('Player 4', 30, 48, 2);
-
-INSERT INTO player (name, age, experience_months, team_id)
-VALUES ('Player 5', 26, 24, 2);
-
-INSERT INTO player (name, age, experience_months, team_id)
-VALUES ('Player 6', 22, 12, 2);
+INSERT INTO player (id, name, age, experience_months, team_id) VALUES (1, 'Player 1', 25, 36, 1);
+INSERT INTO player (id, name, age, experience_months, team_id) VALUES (2, 'Player 2', 28, 48, 1);
+INSERT INTO player (id, name, age, experience_months, team_id) VALUES (3, 'Player 3', 23, 24, 2);

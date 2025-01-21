@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.example.football.model.player.Player;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +22,6 @@ public class FootballTeam {
     private String name;
     private double budget;
     private double commissionPercentage;
-    @ElementCollection
-    private List<Long> playersId;
+    @OneToMany
+    private List<Player> players = new ArrayList<>();
 }

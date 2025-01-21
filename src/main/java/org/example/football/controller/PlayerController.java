@@ -34,12 +34,12 @@ public class PlayerController {
         List<PlayerGetDTO> playerGetDTOList = playerService.getAllPlayers();
         return new ResponseEntity<>(playerGetDTOList, HttpStatus.OK);
     }
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<PlayerGetDTO> updatePlayer(@PathVariable long id, @RequestBody @Valid PlayerPostDTO playerPostDTO) {
         PlayerGetDTO playerGetDTO = playerService.updatePlayer(id, playerPostDTO);
         return new ResponseEntity<>(playerGetDTO, HttpStatus.OK);
     }
-    @PostMapping("/del/{id}")
+    @DeleteMapping("/del/{id}")
     public ResponseEntity<String> deletePlayer(@PathVariable long id) {
         playerService.deletePlayer(id);
         return ResponseEntity.ok("Player with ID " + id + " has been successfully deleted.");

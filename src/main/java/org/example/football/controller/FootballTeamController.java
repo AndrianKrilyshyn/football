@@ -1,5 +1,6 @@
 package org.example.football.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.football.model.footballTeam.dto.FootballTeamGetDTO;
 import org.example.football.model.footballTeam.dto.FootballTeamPostDTO;
@@ -19,7 +20,7 @@ public class FootballTeamController {
     private final FootballTeamService footballTeamService;
 
     @PostMapping("/create")
-    public ResponseEntity<FootballTeamGetDTO> createFootballTeam(@RequestBody FootballTeamPostDTO footballTeamPostDTO) {
+    public ResponseEntity<FootballTeamGetDTO> createFootballTeam(@RequestBody @Valid FootballTeamPostDTO footballTeamPostDTO) {
         FootballTeamGetDTO footballTeamGetDTO = footballTeamService.createFootballTeam(footballTeamPostDTO);
         return new ResponseEntity<>(footballTeamGetDTO, HttpStatus.CREATED);
     }
@@ -36,13 +37,13 @@ public class FootballTeamController {
         return new ResponseEntity<>(listFootballTeamGetDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<FootballTeamGetDTO> updateFootballTeam(@PathVariable long id, @RequestBody FootballTeamPostDTO footballTeamPostDTO) {
+    @PutMapping("/{id}")
+    public ResponseEntity<FootballTeamGetDTO> updateFootballTeam(@PathVariable long id, @RequestBody @Valid FootballTeamPostDTO footballTeamPostDTO) {
         FootballTeamGetDTO footballTeamGetDTO = footballTeamService.updateFootballTeam(id, footballTeamPostDTO);
         return new ResponseEntity<>(footballTeamGetDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/del/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFootballTeam(@PathVariable long id) {
         footballTeamService.deleteFootballTeam(id);
         return ResponseEntity.ok("Football team with ID " + id + " has been successfully deleted.");

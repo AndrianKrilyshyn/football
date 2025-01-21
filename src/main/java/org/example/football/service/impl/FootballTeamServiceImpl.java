@@ -22,10 +22,10 @@ public class FootballTeamServiceImpl implements FootballTeamService {
     private final PlayerRepo playerRepo;
     private final FootballTeamMapper footballTeamMapper;
     private final PlayerMapper playerMapper;
+    private final PlayerServiceImpl playerServiceImpl;
 
     @Override
     public FootballTeamGetDTO createFootballTeam(FootballTeamPostDTO footballTeamPostDTO) {
-        checkPlayers(footballTeamPostDTO.getPlayersId());
         FootballTeam footballTeam = footballTeamMapper.toFootballTeam(footballTeamPostDTO);
         return footballTeamMapper.toFootballTeamGetDTO(footballTeamRepo.save(footballTeam));
     }
@@ -79,21 +79,14 @@ public class FootballTeamServiceImpl implements FootballTeamService {
         }
 
         newFootballTeam.setBudget(newFootballTeam.getBudget() - transferCost);
+        newFootballTeam.getPlayers().add(player);
         currentFootballTeam.setBudget(currentFootballTeam.getBudget() + transferCost);
+        currentFootballTeam.getPlayers().remove(player);
         player.setTeamId(newTeamId);
+        PlayerGetDTO playerGetDTO = playerMapper.playerToPlayerGetDTO(playerRepo.save(player));
         footballTeamRepo.save(newFootballTeam);
         footballTeamRepo.save(currentFootballTeam);
-
-        return playerMapper.playerToPlayerGetDTO(playerRepo.save(player));
+        return playerGetDTO;
 
     }
-    private void checkPlayers(List<Long> listId){
-        for (Long playerId : listId) {
-            if (!playerRepo.existsById(playerId)) {
-                throw new IllegalArgumentException("Player with ID " + playerId + " does not exist");
-            }
-        }
-    }
-
-
 }

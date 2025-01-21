@@ -17,5 +17,4 @@ public class FootballTeamPostDTO {
     @DecimalMin(value = "0.0", inclusive = true, message = "Commission percentage must be at least 0%")
     @DecimalMax(value = "10.0", inclusive = true, message = "Commission percentage cannot exceed 10%")
     private double commissionPercentage;
-    private List<Long> playersId;
 }
