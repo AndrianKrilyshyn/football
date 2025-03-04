@@ -22,7 +22,6 @@ public class FootballTeamServiceImpl implements FootballTeamService {
     private final PlayerRepo playerRepo;
     private final FootballTeamMapper footballTeamMapper;
     private final PlayerMapper playerMapper;
-    private final PlayerServiceImpl playerServiceImpl;
 
     @Override
     public FootballTeamGetDTO createFootballTeam(FootballTeamPostDTO footballTeamPostDTO) {
