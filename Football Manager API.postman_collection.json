@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "1b8039bb-04d6-4830-b971-e7b1955f36f5",
+		"name": "Football Manager API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33499443",
+		"_collection_link": "https://www.postman.com/aerospace-meteorologist-2088368/workspace/football-manager-api/collection/33499443-1b8039bb-04d6-4830-b971-e7b1955f36f5?action=share&source=collection_link&creator=33499443"
+	},
+	"item": [
+		{
+			"name": "createFootballTeam",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"FC Barcelona\",\r\n  \"budget\": 100000000,\r\n\t\"commissionPercentage\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/team/create"
+			},
+			"response": []
+		},
+		{
+			"name": "getFootballTeamById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/team/2"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllFootballTeams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/team/all"
+			},
+			"response": []
+		},
+		{
+			"name": "updateFootballTeam",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"FC Real Madrid\",\r\n  \"commissionPercentage\": 8,\r\n  \"budget\": 120000000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/team/1"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteFootballTeam",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/team/3"
+			},
+			"response": []
+		},
+		{
+			"name": "transferPlayer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/team/transfer/1/2"
+			},
+			"response": []
+		},
+		{
+			"name": "createPlayer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Lionel Messi\",\r\n  \"age\": 34,\r\n  \"experienceMonths\": 17\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/player/create/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getPlayer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/player/2"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPlayers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/player/all"
+			},
+			"response": []
+		},
+		{
+			"name": "updatePlayer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Cristiano Ronaldo\",\r\n  \"age\": 36,\r\n  \"experienceMonths\": 18\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/player/1"
+			},
+			"response": []
+		},
+		{
+			"name": "deletePlayer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/player/del/7"
+			},
+			"response": []
+		},
+		{
+			"name": "createMatch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"homeTeamId\": 1,\r\n  \"awayTeamId\": 2,\r\n  \"date\": \"2025-03-10T15:00:00\",\r\n  \"location\": \"Kyiv Stadium\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/matches"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllMatches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/matches"
+			},
+			"response": []
+		},
+		{
+			"name": "getMatchById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "updateMatch",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"homeTeamId\": 1,\r\n  \"awayTeamId\": 3,\r\n  \"matchDate\": \"2025-03-15T18:00:00\",\r\n  \"location\": \"Lviv Arena\",\r\n  \"score\": \"1-2\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/matches/1"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMatch",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/matches/1"
+			},
+			"response": []
+		},
+		{
+			"name": "setMatchScore",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/matches/3/score?score=0-0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"matches",
+						"3",
+						"score"
+					],
+					"query": [
+						{
+							"key": "score",
+							"value": "0-0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
